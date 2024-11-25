@@ -1,28 +1,15 @@
-//Factory Function
-function createCirle(radius) {
-  return {
-    radius,
-    draw: function () {
-      console.log('Draw');
-    },
-  };
+let x = { value: 10 };
+
+// Since object are Refence Types
+// What I'm doing here is copying the reference address not the actual value of the object
+let y = x;
+
+x.value = 20;
+
+let obj = { value: 1 };
+
+function increase(obj) {
+  obj.value++;
 }
-
-const circle = createCirle(1);
-
-//Constructor function
-function Circle(radius) {
-  console.log('this', this);
-  this.radius = radius;
-  this.draw = function () {
-    console.log('Draw with radius: ' + this.radius);
-  };
-}
-
-const anotherCirle = new Circle(1);
-//When Creating a new Object (In this case: Cirle) we are doing 3 things:
-//1. Create an empty Object
-//2. It would set (this) to point to that object (Previously poiting to Window)
-//3. Finally it would return an Object from the Contructor function (Line 14) (Is like returning 'this')
-
-anotherCirle.draw();
+increase(obj);
+console.log(obj);
